@@ -22,8 +22,9 @@ function App() {
   const onclick = async () => {
     const formData = new FormData();
     formData.append('file', data);
-    console.log(data)
+    console.log('file ----------------------- \n', data)
 
+    //http://3.25.201.185:9091/api/v1/verify
     // response type:
     // "id": "b72bcc11-9c59-4a17-baa9-6f69e10c0b22",
     // "fullName": "Nguyễn Văn A",
@@ -31,7 +32,7 @@ function App() {
     // "isEligible": true,
     // "msv": "B19DCCN161",
     // "gpa": 3.01
-    const response = await axios.post('http://3.25.201.185:9091/api/v1/verify', formData, {
+    const response = await axios.post('http://192.168.43.174:8092/api/v1/verify', formData, {
       headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -39,7 +40,7 @@ function App() {
     
     // const response = true
     if (response?.data) {
-      console.log(response)
+      console.log('response ----------------------- \n', response)
       if(response?.data?.isEligible){
         success(`Chúc mừng ${response?.data?.fullName} đã đủ điều kiện làm đồ án`)
       }
@@ -56,7 +57,9 @@ function App() {
   return (
     <div className="App">
       {contextHolder}
+      <h1>Xét điều kiện làm đồ án</h1>
       <Form>
+        <Form.Item><h3>Chọn file điểm của sinh viên:</h3></Form.Item>
         <Form.Item
           name="File"
           label="Upload"
