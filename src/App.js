@@ -32,7 +32,8 @@ function App() {
     // "isEligible": true,
     // "msv": "B19DCCN161",
     // "gpa": 3.01
-    const response = await axios.post('http://192.168.43.174:8092/api/v1/verify', formData, {
+    try{
+      const response = await axios.post('http://13.236.3.13:9091/api/v1/verify', formData, {
       headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -49,6 +50,10 @@ function App() {
       }
     } else {
       error('Có lỗi xảy ra')
+    }
+    }
+    catch(err){
+      console.log("🚀 ~ file: App.js:56 ~ onclick ~ err:", err)
     }
   }
   const normFile = (event) => {
