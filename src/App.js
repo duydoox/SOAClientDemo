@@ -11,12 +11,14 @@ function App() {
     messageApi.open({
       type: 'success',
       content: content,
+      duration: 10000,
     });
   };
   const error = (content) => {
     messageApi.open({
       type: 'error',
       content: content,
+      duration: 10000,
     });
   };
   const onclick = async () => {
