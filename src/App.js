@@ -48,8 +48,9 @@ function App() {
         success(`Chúc mừng ${response?.data?.fullName} đã đủ điều kiện làm đồ án`)
       }
       else{
-        error(`Rất tiếc ${response?.data?.fullName} không đủ điều kiện làm đồ án`)
+        error(`Thông báo ${response?.data?.fullName} không đủ điều kiện làm đồ án`)
       }
+      setData(null)
     } else {
       error('Có lỗi xảy ra')
     }
