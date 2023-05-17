@@ -45,10 +45,10 @@ function App() {
     if (response?.data) {
       console.log('response ----------------------- \n', response)
       if(response?.data?.isEligible){
-        success(`Chúc mừng ${response?.data?.fullName} đã đủ điều kiện làm đồ án`)
+        success(`Chúc mừng ${response?.data?.fullName} đã đủ điều kiện làm đồ án với gpa = ${response?.data?.gpa}`)
       }
       else{
-        error(`Thông báo ${response?.data?.fullName} không đủ điều kiện làm đồ án`)
+        error(`Thông báo ${response?.data?.fullName} không đủ điều kiện làm đồ án với gpa = ${response?.data?.gpa}`)
       }
       setData(null)
     } else {
